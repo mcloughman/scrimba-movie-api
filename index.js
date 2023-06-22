@@ -2,7 +2,7 @@ import { renderMovieHtml, setLocalStorage } from "./utils.js"
 const movieSection = document.getElementById("movie-section")
 const input = document.getElementById("search-input")
 const searchBtn = document.getElementById("search-button")
-const url = `http://www.omdbapi.com/?${process.env.API_KEY}&`
+const url = `http://www.omdbapi.com/?apikey=${API_KEY}&`
 let movieArray = []
 let watchlistArray = []
 
