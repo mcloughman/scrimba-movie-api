@@ -51,3 +51,7 @@ document.addEventListener("click", (e) => {
     parent.textContent = fulltext
   }
 })
+// index.js:11 Mixed Content: The page at 'https://genuine-pothos-5e6777.netlify.app/' was loaded over HTTPS, but requested an insecure resource 'http://www.omdbapi.com/?apikey=d9835cc5&s=start'. This request has been blocked; the content must be served over HTTPS.
+// (anonymous) @ index.js:11
+// index.js:11     Uncaught (in promise) TypeError: Failed to fetch
+//     at HTMLButtonElement.<anonymous> (index.js:11:3)
