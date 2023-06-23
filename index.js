@@ -6,6 +6,10 @@ const url = "https://www.omdbapi.com/?apikey=d9835cc5&"
 let movieArray = []
 let watchlistArray = []
 
+window.addEventListener("load", () => {
+  loadWatchlist()
+})
+
 searchBtn.addEventListener("click", () => {
   movieSection.innerHTML = ""
   fetch(`${url}s=${input.value}`)
@@ -31,6 +35,7 @@ document.addEventListener("click", (e) => {
       movie.imdbID === e.target.dataset.id &&
       e.target.classList.contains("add-movie")
     ) {
+      console.log(watchlistArray)
       watchlistArray.push(movie)
       setLocalStorage(watchlistArray)
     }
@@ -51,7 +56,11 @@ document.addEventListener("click", (e) => {
     parent.textContent = fulltext
   }
 })
-// index.js:11 Mixed Content: The page at 'https://genuine-pothos-5e6777.netlify.app/' was loaded over HTTPS, but requested an insecure resource 'http://www.omdbapi.com/?apikey=d9835cc5&s=start'. This request has been blocked; the content must be served over HTTPS.
-// (anonymous) @ index.js:11
-// index.js:11     Uncaught (in promise) TypeError: Failed to fetch
-//     at HTMLButtonElement.<anonymous> (index.js:11:3)
+
+// Load watchlist from local storage
+function loadWatchlist() {
+  const storedWatchlist = localStorage.getItem("watchlist")
+  if (storedWatchlist) {
+    watchlistArray = JSON.parse(storedWatchlist)
+  }
+}
