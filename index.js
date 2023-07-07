@@ -20,8 +20,10 @@ searchBtn.addEventListener("click", () => {
       const fetchPromises = movieArray.map((movie) =>
         fetch(`${url}i=${movie.imdbID}`).then((response) => response.json())
       )
+      console.log(fetchPromises)
 
       Promise.all(fetchPromises).then((dataArray) => {
+        console.log(dataArray)
         movieArray = dataArray
 
         renderMovieHtml(movieArray)

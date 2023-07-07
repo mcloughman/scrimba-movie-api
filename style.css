@@ -204,4 +204,7 @@ hr {
   section.movie-container {
     flex-direction: column;
   }
+  hr {
+    display: none;
+  }
 }
